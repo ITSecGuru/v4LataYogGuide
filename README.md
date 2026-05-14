@@ -22,6 +22,11 @@ Open the local URL shown in the terminal.
 
 After running the dev server, open `http://localhost:5173/test.html` to access a local test harness page with an embedded preview of the app.
 
+## Deployment
+
+This project is configured for GitHub Pages deployment using `./dist` as the site output directory.
+Push to `main` to trigger the GitHub Actions workflow defined in `.github/workflows/github-pages.yml`.
+
 ## Project structure
 
 - `src/App.jsx` — main application shell and state management
