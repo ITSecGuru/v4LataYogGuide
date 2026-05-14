@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lata Yog Routine Guide - Local Test Page</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: Inter, system-ui, sans-serif;
+        background: #f8fafc;
+        color: #0f172a;
+      }
+      .page {
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+      .card {
+        background: #ffffff;
+        border-radius: 1.5rem;
+        box-shadow: 0 20px 45px rgba(15, 23, 42, 0.08);
+        padding: 2rem;
+      }
+      a {
+        color: #0f766e;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      iframe {
+        width: 100%;
+        min-height: 72vh;
+        border: 1px solid #e2e8f0;
+        border-radius: 1rem;
+      }
+      .meta {
+        display: grid;
+        gap: 1rem;
+      }
+      .meta code {
+        background: #e2e8f0;
+        padding: 0.2rem 0.4rem;
+        border-radius: 0.4rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <div class="card">
+        <h1>Lata Yog Routine Guide</h1>
+        <p>This local test page is designed for validation while running the Vite dev server.</p>
+        <div class="meta">
+          <p>Access it with <code>http://localhost:5173/test.html</code> after starting the app with:</p>
+          <p><code>npm run dev</code></p>
+        </div>
+        <ul>
+          <li><a href="/">Open the main app</a></li>
+          <li><a href="/test.html">Reload this test page</a></li>
+        </ul>
+        <section>
+          <h2>App preview</h2>
+          <iframe src="/" title="Lata Yog App preview"></iframe>
+        </section>
+        <section>
+          <h2>Quick test checklist</h2>
+          <ol>
+            <li>Confirm the app loads in the iframe.</li>
+            <li>Switch routines and verify labels update.</li>
+            <li>Check that local illustrations are displayed.</li>
+          </ol>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>
