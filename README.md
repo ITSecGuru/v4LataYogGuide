@@ -18,9 +18,16 @@ npm run dev
 
 Open the local URL shown in the terminal.
 
-## Local test page
+## Local test environment
 
-After running the dev server, open `http://localhost:5173/test.html` to access a local test harness page with an embedded preview of the app.
+Install dependencies and start the local dev server:
+
+```bash
+npm install
+npm run test
+```
+
+Open `http://localhost:5173/test.html` in your browser to use the built-in test harness page and preview the app.
 
 ## Deployment
 
