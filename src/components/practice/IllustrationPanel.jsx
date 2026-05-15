@@ -8,7 +8,7 @@ function IllustrationPanel({ currentStep, labels }) {
           <img
             src={currentStep.image}
             alt={currentStep.roman}
-            className="h-72 w-full rounded-3xl object-cover"
+            className="h-48 w-full rounded-3xl object-cover sm:h-56"
           />
           <div className="grid gap-3 sm:grid-cols-2">
             <a className="rounded-3xl bg-slate-100 px-4 py-3 text-sm text-slate-700" href={currentStep.image} target="_blank" rel="noreferrer">

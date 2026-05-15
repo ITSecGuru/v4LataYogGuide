@@ -17,6 +17,7 @@ import IllustrationPanel from './components/practice/IllustrationPanel.jsx';
 import BreathingPanel from './components/practice/BreathingPanel.jsx';
 import SequencePanel from './components/practice/SequencePanel.jsx';
 import RoutineStepList from './components/practice/RoutineStepList.jsx';
+import Select from './components/ui/Select.jsx';
 
 const defaultRoutineId = 'patanjaliJogging1';
 
@@ -104,37 +105,35 @@ function App() {
               <p className="mt-3 max-w-2xl text-slate-600 sm:text-base">{text.appSubtitle}</p>
             </div>
             <div className="grid gap-3 sm:grid-cols-2">
-              <div className="rounded-3xl bg-slate-900 px-5 py-4 text-white shadow-soft">
-                <p className="text-xs uppercase tracking-[0.25em] text-slate-300">{text.interfaceLanguage}</p>
-                <div className="mt-2 flex items-center gap-3 text-lg font-semibold">
-                  {text.languageMap[interfaceLanguage]}
-                </div>
-              </div>
-              <div className="rounded-3xl bg-white px-5 py-4 text-slate-900 shadow-soft">
-                <p className="text-xs uppercase tracking-[0.25em] text-slate-400">{text.spokenAudioLanguage}</p>
-                <div className="mt-2 flex items-center gap-3 text-lg font-semibold">
-                  {text.languageMap[speechLanguage]}
-                </div>
-              </div>
+              <Select
+                label={text.interfaceLanguage}
+                name="interface-language"
+                value={interfaceLanguage}
+                onChange={setInterfaceLanguage}
+                options={text.languageOptions}
+                className="rounded-3xl bg-slate-900 p-0 text-white shadow-soft"
+              />
+              <Select
+                label={text.spokenAudioLanguage}
+                name="speech-language"
+                value={speechLanguage}
+                onChange={setSpeechLanguage}
+                options={text.speechOptions}
+                className="rounded-3xl bg-white p-0 text-slate-900 shadow-soft"
+              />
             </div>
           </div>
         </header>
 
-        <main className="grid gap-8 xl:grid-cols-[1.4fr_1fr]">
+        <main className="grid gap-6 xl:grid-cols-[1.4fr_1fr]">
           <section className="space-y-6">
-            <RoutineSelector
-              routines={routines}
-              activeRoutineId={selectedRoutineId}
-              onSelect={handleRoutineChange}
-              labels={text}
-            />
-            <RoutineHeader
-              routine={activeRoutine}
-              labels={text}
-              currentStep={currentStep}
-              progress={progress}
-            />
-            <div className="grid gap-6 xl:grid-cols-[0.95fr_0.75fr]">
+            <div className="grid gap-6 xl:grid-cols-[1.4fr_0.95fr]">
+              <RoutineSelector
+                routines={routines}
+                activeRoutineId={selectedRoutineId}
+                onSelect={handleRoutineChange}
+                labels={text}
+              />
               <div className="space-y-6">
                 <CurrentStepPanel
                   currentStep={currentStep}
@@ -142,10 +141,6 @@ function App() {
                   formattedTime={formatSeconds(currentStep?.duration ?? 0 - stepSeconds)}
                   labels={text}
                 />
-                <IllustrationPanel currentStep={currentStep} labels={text} />
-                <BreathingPanel currentStep={currentStep} labels={text} breathingHint={breathingHint(currentStep)} />
-              </div>
-              <div className="space-y-6">
                 <ControlsPanel
                   status={status}
                   onStart={handleStart}
@@ -158,6 +153,18 @@ function App() {
                   onSpeechLanguageChange={setSpeechLanguage}
                   labels={text}
                 />
+              </div>
+            </div>
+            <RoutineHeader
+              routine={activeRoutine}
+              labels={text}
+              currentStep={currentStep}
+              progress={progress}
+            />
+            <div className="grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
+              <div className="space-y-6">
+                <IllustrationPanel currentStep={currentStep} labels={text} />
+                <BreathingPanel currentStep={currentStep} labels={text} breathingHint={breathingHint(currentStep)} />
                 <SafetyPanel routine={activeRoutine} safetyNote={routineSafety} labels={text} />
               </div>
             </div>
